@@ -1,0 +1,31 @@
+{
+  "name": "funabot",
+  "version": "1.0.0",
+  "description": "Funa a quien quieras",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zevaxx/FunaBot.git"
+  },
+  "keywords": [
+    "funa",
+    "twitter"
+  ],
+  "author": "Sebastian Díaz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zevaxx/FunaBot/issues"
+  },
+  "homepage": "https://github.com/Zevaxx/FunaBot#readme",
+  "dependencies": {
+    "cron": "^1.8.2",
+    "dotenv": "^16.0.0",
+    "nodemon": "^2.0.15",
+    "twitter-api-v2": "^1.11.1"
+  }
+}
