@@ -17,7 +17,7 @@ console.log('running a task every day at 8:30 and 16:30');
 
 const sendTweet = async () => {
   // 2022-01-26T01:30:00.000Z
-  let fechaInicial = new Date( 2022, 0, 26, 1, 30, 0, 0 );
+  let fechaInicial = new Date( 2022, 0, 26, 7, 00, 0, 0 );
     
   // fecha actual menos 3 horas (hora del servidor)
   let fechaActual = new Date();
@@ -41,7 +41,7 @@ const sendTweet = async () => {
 
   // se enviará a otros receptores solo los días lunes y jueves a las 8:30
   if (fechaActual.getDay() === 1 || fechaActual.getDay() === 4) {
-    if (horasRestantes < 10) {
+    if (horasRestantes < 4) {
       otros_receptores = '@SERNAC @subtel_chile @entel_ayuda'
     }
   }
