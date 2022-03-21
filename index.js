@@ -25,7 +25,7 @@ const sendTweet = async () => {
   fechaActual.setHours(fechaActual.getHours() - 3);
 
   console.log("fcha inicial", fechaInicial);
-  console.log("fecga actual" , fechaActual);
+  console.log("fecha actual" , fechaActual);
 
   // meses de diferencia
   let diferenciaFechas = fechaActual.getTime() - fechaInicial.getTime();
@@ -45,8 +45,20 @@ const sendTweet = async () => {
       otros_receptores = '@SERNAC @subtel_chile @entel_ayuda'
     }
   }
+
+  let meses_name = 'meses'
+
+  if (meses === 1) {
+    meses_name = 'mes'
+  }
+
+  let dias_name = 'días'
+
+  if (diasRestantes === 1) {
+    dias_name = 'día'
+  }
   
-  let tweet_movistar = `@MovistarChile @AyudaMovistarCL LLevo ${meses} mes(es), ${diasRestantes} días y ${horasRestantes} horas esperando que me instalen Internet. Publicitan sus planes con stand, ofrecen promociones y monopolizan nuestro edificio pero al final no cumplen con su palabra.(req. 3126201) ${otros_receptores}`;
+  let tweet_movistar = `@MovistarChile @AyudaMovistarCL LLevo ${meses} ${meses_name}, ${diasRestantes} ${dias_name} y ${horasRestantes} horas esperando que me instalen Internet. Publicitan sus planes con stand, ofrecen promociones y monopolizan nuestro edificio pero al final no cumplen con su palabra.(req. 3126201) ${otros_receptores}`;
   
   console.log(tweet_movistar);
   try {
