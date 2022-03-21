@@ -17,7 +17,7 @@ console.log('running a task every day at 8:30 and 16:30');
 
 const sendTweet = async () => {
   // 2022-01-26T01:30:00.000Z
-  let fechaInicial = new Date( 2022, 0, 26, 7, 00, 0, 0 );
+  let fechaInicial = new Date( 2022, 0, 26, 7, 0, 0, 0 );
     
   // fecha actual menos 3 horas (hora del servidor)
   let fechaActual = new Date();
@@ -57,8 +57,14 @@ const sendTweet = async () => {
   if (diasRestantes === 1) {
     dias_name = 'día'
   }
+
+  let horas_name = 'horas'
+
+  if (horasRestantes === 1) {
+    horas_name = 'hora'
+  }
   
-  let tweet_movistar = `@MovistarChile @AyudaMovistarCL LLevo ${meses} ${meses_name}, ${diasRestantes} ${dias_name} y ${horasRestantes} horas esperando que me instalen Internet. Publicitan sus planes con stand, ofrecen promociones y monopolizan nuestro edificio pero al final no cumplen con su palabra.(req. 3126201) ${otros_receptores}`;
+  let tweet_movistar = `@MovistarChile @AyudaMovistarCL LLevo ${meses} ${meses_name}, ${diasRestantes} ${dias_name} y ${horasRestantes} ${horas_name} esperando que me instalen Internet. Publicitan sus planes con stand, ofrecen promociones y monopolizan nuestro edificio pero al final no cumplen con su palabra.(req. 3126201) ${otros_receptores}`;
   
   console.log(tweet_movistar);
   try {
