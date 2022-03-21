@@ -18,7 +18,9 @@ console.log('running a task every day at 8:30 and 16:30');
 const sendTweet = async () => {
   // fecha inicial 26/01/2022
   let fechaInicial = new Date(2022, 0, 26, 8, 30, 0, 0);   // 2022-01-26T08:30:00.000Z
-  let fechaActual = new Date();
+  
+  // fecha actual menos 3 horas (hora del servidor)
+  let fechaActual = new Date() - 3 * 60 * 60 * 1000;
 
   // meses de diferencia
   let diferenciaFechas = fechaActual.getTime() - fechaInicial.getTime();
@@ -43,8 +45,8 @@ const sendTweet = async () => {
   
   console.log(tweet_movistar);
   try {
-    const tweet_response = await client.v2.tweet(tweet_movistar);
-    console.log(tweet_response);
+    // const tweet_response = await client.v2.tweet(tweet_movistar);
+    // console.log(tweet_response);
   } catch (error) {
     console.log(error);
   }
