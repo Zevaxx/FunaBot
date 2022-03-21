@@ -15,7 +15,6 @@ const client = new TwitterApi({
 console.log('Starting the bot...');
 console.log('running a task every day at 8:30 and 16:30');
 
-// envia un twit a las 8:30 y a las 16:30 hrs todos los dias de habiles de la semana en la hora de Chile
 const sendTweet = async () => {
   // fecha inicial 26/01/2022
   let fechaInicial = new Date(2022, 0, 26, 8, 30, 0, 0);   // 2022-01-26T08:30:00.000Z
@@ -27,22 +26,21 @@ const sendTweet = async () => {
   let dias = Math.floor(diferenciaFechas / (1000 * 60 * 60 * 24));
   let meses = Math.floor(dias / 30);
   let diasRestantes = dias - (meses * 30);
-  // let horasRestantes = Math.floor((diferenciaFechas - (dias * 1000 * 60 * 60 * 24) ) / (1000 * 60 * 60))
-  let horasRestantes = (diferenciaFechas - (dias * 1000 * 60 * 60 * 24) ) / (1000 * 60 * 60)
-
+  let horasRestantes = Math.floor((diferenciaFechas - (dias * 1000 * 60 * 60 * 24) ) / (1000 * 60 * 60))
   
   console.log('Sending tweet...');
 
   let otros_receptores = ''
 
-  // se enviará a otros receptores solo los días lunes y jueves
+  // se enviará a otros receptores solo los días lunes y jueves a las 8:30
   if (fechaActual.getDay() === 1 || fechaActual.getDay() === 4) {
-    otros_receptores = '@SERNAC @subtel_chile @entel_ayuda'
+    if (horasRestantes < 12) {
+      otros_receptores = '@SERNAC @subtel_chile @entel_ayuda'
+    }
   }
-
-  // let tweet_movistar = `@MovistarChile @AyudaMovistarCL LLevo ${meses} mes(es) y ${diasRestantes} días esperando que me instalen Internet. Publicitan sus planes con stand, ofrecen promociones, monopolizan nuestro edificio pero al final no cumplen con su palabra.(req. 3126201) ${otros_receptores}`;
   
-  let tweet_movistar = `${meses} mes(es), ${diasRestantes} días y horas ${horasRestantes}`;
+  let tweet_movistar = `@MovistarChile @AyudaMovistarCL LLevo ${meses} mes(es), ${diasRestantes} días y ${horasRestantes} horas esperando que me instalen Internet. Publicitan sus planes con stand, ofrecen promociones y monopolizan nuestro edificio pero al final no cumplen con su palabra.(req. 3126201) ${otros_receptores}`;
+  
   console.log(tweet_movistar);
   try {
     const tweet_response = await client.v2.tweet(tweet_movistar);
@@ -54,10 +52,10 @@ const sendTweet = async () => {
 
 
 // solo envia el twitt de lunes a viernes
-// if (new Date().getDay() === 1 || new Date().getDay() === 2 || new Date().getDay() === 3 || new Date().getDay() === 4 || new Date().getDay() === 5) {
+if (new Date().getDay() === 1 || new Date().getDay() === 2 || new Date().getDay() === 3 || new Date().getDay() === 4 || new Date().getDay() === 5) {
   sendTweet();
-// } else {
-//   console.log('No es día de trabajo');
-// }
+} else {
+  console.log('No es día de trabajo');
+}
 
 
