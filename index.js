@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import Cron from 'cron';
+// import Cron from 'cron';
 import { TwitterApi } from 'twitter-api-v2';
 
 dotenv.config({ path: './config.env' });
@@ -44,7 +44,8 @@ const sendTweet = async () => {
   }
 
   // let tweet_movistar = `@MovistarChile @AyudaMovistarCL LLevo ${meses} mes(es) y ${diasRestantes} días esperando que me instalen Internet. Publicitan sus planes con stand, ofrecen promociones, monopolizan nuestro edificio pero al final no cumplen con su palabra.(req. 3126201) ${otros_receptores}`;
-  let tweet_movistar = 'test tweet';
+  
+  let tweet_movistar = `${meses} mes(es) y ${diasRestantes} días`
   console.log(tweet_movistar);
   try {
     const tweet_response = await client.v2.tweet(tweet_movistar);
@@ -54,7 +55,12 @@ const sendTweet = async () => {
   }
 };
 
-new Cron.CronJob('00 30 8,16 * * 1-5', function() {
+
+// solo envia el twitt de lunes a viernes
+// if (new Date().getDay() === 1 || new Date().getDay() === 2 || new Date().getDay() === 3 || new Date().getDay() === 4 || new Date().getDay() === 5) {
   sendTweet();
-}, null, true, 'America/Santiago');
+// } else {
+//   console.log('No es día de trabajo');
+// }
+
 
