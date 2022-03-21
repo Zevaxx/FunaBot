@@ -45,8 +45,8 @@ const sendTweet = async () => {
   
   console.log(tweet_movistar);
   try {
-    // const tweet_response = await client.v2.tweet(tweet_movistar);
-    // console.log(tweet_response);
+    const tweet_response = await client.v2.tweet(tweet_movistar);
+    console.log(tweet_response);
   } catch (error) {
     console.log(error);
   }
