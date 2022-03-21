@@ -31,6 +31,7 @@ const sendTweet = async () => {
   let dias = Math.floor(diferenciaFechas / (1000 * 60 * 60 * 24));
   let meses = Math.floor(dias / 30);
   let diasRestantes = dias - (meses * 30);
+  let horasRestantes = Math.floor(diasRestantes / 24) - 
   
   console.log(`meses: ${meses} y dias: ${diasRestantes}`);
   
@@ -45,7 +46,7 @@ const sendTweet = async () => {
 
   // let tweet_movistar = `@MovistarChile @AyudaMovistarCL LLevo ${meses} mes(es) y ${diasRestantes} días esperando que me instalen Internet. Publicitan sus planes con stand, ofrecen promociones, monopolizan nuestro edificio pero al final no cumplen con su palabra.(req. 3126201) ${otros_receptores}`;
   
-  let tweet_movistar = `${meses} mes(es) y ${diasRestantes} días`
+  let tweet_movistar = `${meses} mes(es), ${diasRestantes} días y horas ${horasRestantes}`;
   console.log(tweet_movistar);
   try {
     const tweet_response = await client.v2.tweet(tweet_movistar);
