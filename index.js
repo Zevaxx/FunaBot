@@ -24,7 +24,7 @@ const sendTweet = async () => {
 
   fechaActual.setHours(fechaActual.getHours() - 3);
 
-  console.log("fcha inicial", fechaInicial);
+  console.log("fecha inicial", fechaInicial);
   console.log("fecha actual" , fechaActual);
 
   // meses de diferencia
