@@ -16,11 +16,16 @@ console.log('Starting the bot...');
 console.log('running a task every day at 8:30 and 16:30');
 
 const sendTweet = async () => {
-  // fecha inicial 26/01/2022
-  let fechaInicial = new Date(2022, 0, 26, 1, 30, 0, 0);   // 2022-01-26T08:30:00.000Z
-  
+  // 2022-01-26T01:30:00.000Z
+  let fechaInicial = new Date( 2022, 0, 26, 1, 30, 0, 0 );
+    
   // fecha actual menos 3 horas (hora del servidor)
-  let fechaActual = new Date() - 3 * 60 * 60 * 1000;
+  let fechaActual = new Date();
+
+  fechaActual.setHours(fechaActual.getHours() - 3);
+
+  console.log("fcha inicial", fechaInicial);
+  console.log("fecga actual" , fechaActual);
 
   // meses de diferencia
   let diferenciaFechas = fechaActual.getTime() - fechaInicial.getTime();
