@@ -12,10 +12,8 @@ const client = new TwitterApi({
   // bearer_token: process.env.TWITTER_BEARER_TOKEN
 });
 
-
 console.log('Starting the bot...');
 console.log('running a task every day at 8:30 and 16:30');
-console.log(`Chilean time: ${new Date().toLocaleString('es-CL')}`);
 
 // envia un twit a las 8:30 y a las 16:30 hrs todos los dias de habiles de la semana en la hora de Chile
 const sendTweet = async () => {
@@ -25,15 +23,13 @@ const sendTweet = async () => {
 
   // meses de diferencia
   let diferenciaFechas = fechaActual.getTime() - fechaInicial.getTime();
-  console.log(`diferencia de fechas: ${diferenciaFechas}`);
-  
   // meses y días en las diferencia de fechas
   let dias = Math.floor(diferenciaFechas / (1000 * 60 * 60 * 24));
   let meses = Math.floor(dias / 30);
   let diasRestantes = dias - (meses * 30);
-  let horasRestantes = Math.floor(diasRestantes / 24) - 
-  
-  console.log(`meses: ${meses} y dias: ${diasRestantes}`);
+  // let horasRestantes = Math.floor((diferenciaFechas - (dias * 1000 * 60 * 60 * 24) ) / (1000 * 60 * 60))
+  let horasRestantes = (diferenciaFechas - (dias * 1000 * 60 * 60 * 24) ) / (1000 * 60 * 60)
+
   
   console.log('Sending tweet...');
 
