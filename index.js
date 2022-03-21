@@ -17,7 +17,7 @@ console.log('running a task every day at 8:30 and 16:30');
 
 const sendTweet = async () => {
   // fecha inicial 26/01/2022
-  let fechaInicial = new Date(2022, 0, 26, 8, 30, 0, 0);   // 2022-01-26T08:30:00.000Z
+  let fechaInicial = new Date(2022, 0, 26, 1, 30, 0, 0);   // 2022-01-26T08:30:00.000Z
   
   // fecha actual menos 3 horas (hora del servidor)
   let fechaActual = new Date() - 3 * 60 * 60 * 1000;
