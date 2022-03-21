@@ -41,7 +41,7 @@ const sendTweet = async () => {
 
   // se enviará a otros receptores solo los días lunes y jueves a las 8:30
   if (fechaActual.getDay() === 1 || fechaActual.getDay() === 4) {
-    if (horasRestantes < 12) {
+    if (horasRestantes < 10) {
       otros_receptores = '@SERNAC @subtel_chile @entel_ayuda'
     }
   }
