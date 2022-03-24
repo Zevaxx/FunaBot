@@ -16,7 +16,7 @@ console.log('Starting the bot...');
 console.log('running a task every day at 8:30 and 16:30');
 
 const sendTweet = async () => {
-  // 2022-01-26T01:30:00.000Z
+  // 2022-01-26T07:00:00.000Z
   let fechaInicial = new Date( 2022, 0, 26, 7, 0, 0, 0 );
     
   // fecha actual menos 3 horas (hora del servidor)
