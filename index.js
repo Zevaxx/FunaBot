@@ -64,7 +64,7 @@ const sendTweet = async () => {
     horas_name = 'hora'
   }
   
-  let tweet_movistar = `@MovistarChile @AyudaMovistarCL LLevo ${meses} ${meses_name}, ${diasRestantes} ${dias_name} y ${horasRestantes} ${horas_name} esperando que me instalen Internet. Publicitan sus planes con stand, ofrecen promociones y monopolizan nuestro edificio pero al final no cumplen con su palabra.(caso: 3126201) ${otros_receptores}`;
+  let tweet_movistar = `@MovistarChile @AyudaMovistarCL LLevo ${meses} ${meses_name}, ${diasRestantes} ${dias_name} y ${horasRestantes} ${horas_name} esperando que me instalen Internet. Publicitan sus planes con stand, ofrecen promociones y monopolizan nuestro edificio pero al final no cumplen con su palabra.(caso: XXXXX) ${otros_receptores}`;
   
   console.log(tweet_movistar);
   try {
